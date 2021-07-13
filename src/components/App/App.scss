@@ -1,0 +1,109 @@
+.app{
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    box-sizing: border-box;
+    
+    &__title{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 48px;
+        margin: 8px 0;
+    }
+    &__description{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    &__nav{
+        margin: 19px 0 19px;
+    }
+    &__nav-asteroids{
+        margin-right: 24px;
+    }
+    &__main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__button {
+        padding: 0;
+        border: none;
+        font: inherit;
+        color: inherit;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;        
+    }
+    &__button:focus, &__button:active{
+        font-weight: bold;
+        letter-spacing: 0.6px;
+    }
+    &__input-dangerous{
+        appearance: none;
+        position: absolute;
+    }
+    &__checkbox{
+        position: absolute;
+        left: 20px;
+        width: 14px;
+        height: 14px;
+        border: 2px solid black;
+        border-radius:2px;
+    }
+    &__title-input-dangerous{
+        margin-left: 30px;
+    }
+    .app__input-dangerous:checked + .app__checkbox{
+        background: url('../../img/asteroid.png');
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__inputs{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 9px 0;
+    }
+    &__label-distance{
+        margin-top: 18px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    &__distance{
+        appearance: none;
+        position: absolute;
+    }
+    &__distance-description{
+        border-bottom: 1px solid black;
+        cursor: pointer;
+    }
+    &__distance:checked + span{
+        font-weight: bold;
+        border: none;
+        letter-spacing: 0.6px;
+    }
+    &__label-checkbox{
+        min-width: 220px;
+        display: flex;
+        align-items: center;
+    }
+
+    @media(min-width: 680px){
+        &__inputs{           
+            flex-direction: row;
+        }
+        &__label-distance{
+            margin-top: 0;
+        }
+        &__title{
+            font-size: 36px;
+            line-height: 48px;
+        }
+    }
+}

@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { useTypesSelector } from '../../hooks/useTypesSelector';
+import { kilometersDistance, moonDistance } from '../../store/action-creators/asteroid';
 
 import AsteroidList from '../AsteroidList/AsteroidList';
 
 import './App.scss'
 
 function App() {
+  const { distance } = useTypesSelector((state) => state.asteroid);
+  const dispatch = useDispatch();
+  const input= useRef<HTMLInputElement>(null);
+
+  if(distance==='kilometers'&&input.current){
+    input.current.checked= true;
+  }
+
   return (
     <div className='app'>
       <header>
@@ -26,11 +37,12 @@ function App() {
           <div className='app__label-distance'>
             Расстояние 
             <label>
-              <input type="radio" className="app__distance" name="distance" />
+              <input type="radio" ref={input} className="app__distance" name="distance" onChange={()=>dispatch(kilometersDistance())} value='kilometers'/>
               <span className="app__distance-description"> в километрах, </span>
               <label>
-              <input type="radio" className="app__distance" name="distance" />
-              <span className="app__distance-description">в дистанциях до луны</span></label>
+                <input type="radio" className="app__distance" name="distance" onChange={()=>dispatch(moonDistance())} value='moon-distance'/>
+                <span className="app__distance-description">в дистанциях до луны</span>
+              </label>
             </label>
           </div>
         </div>

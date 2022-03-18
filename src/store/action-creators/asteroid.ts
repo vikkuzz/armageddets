@@ -18,3 +18,5 @@ export const fetchAsteroids = () =>{
         }
     }
 }
+export const moonDistance = () => ({type:AsteroidActionTypes.ASTEROIDS_MOON_DISTANCE });
+export const kilometersDistance = () => ({type:AsteroidActionTypes.ASTEROIDS_KILOMETERS_DISTANCE });
